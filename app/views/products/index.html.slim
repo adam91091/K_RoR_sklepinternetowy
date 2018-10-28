@@ -1,5 +1,31 @@
 h1 All products:
+#order-by_asc
+  form
+    select name="sort"
+      option value="name"  Name
+      option value="price"  Price
+      option value="rate"  Rate
+    input type="submit" value="Sort Ascending"
+#order-by_desc
+  form
+    select name="reverse_sort"
+      option value="name"  Name
+      option value="price"  Price
+      option value="rate"  Rate
+    input type="submit" value="Sort Descending"
 - @products.each do |product|
     p
       a href=product_path(product)
         = product.name
+      = form_for(product) do |f|
+        = f.radio_button :rate, 1
+        = f.label :rate, '1', :value => 1
+        = f.radio_button :rate, 2
+        = f.label :rate, '2', :value => 2
+        = f.radio_button :rate, 3
+        = f.label :rate, '3', :value => 3
+        = f.radio_button :rate, 4
+        = f.label :rate, '4', :value => 4
+        = f.radio_button :rate, 5
+        = f.label :rate, '5', :value => 5
+        = f.submit "Rate product"

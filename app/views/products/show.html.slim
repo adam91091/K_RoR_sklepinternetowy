@@ -5,4 +5,6 @@ div
     div price: #{@product.price}
     - if @product.promoted
             = "This product is promoted!"
-
+            br
+    - if @product.rate
+            = "This product was rated: #{@product.rate}"
