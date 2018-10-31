@@ -1,6 +1,10 @@
 = link_to products_path do
   strong back
 div
+    ul.errors
+        - flash.each do |key, value|
+            li = "#{value}"  
+
     h1= @product.name
     div price: #{@product.price}
     - if @product.promoted
@@ -8,3 +12,13 @@ div
             br
     - if @product.rate
             = "This product was rated: #{@product.rate}"
+
+    ul
+        - @product.comments.each do |comment|
+                li = "#{comment.content} (#{comment.created_at})"
+
+    = form_for([@product, @product.comments.build]) do |f|
+        div.field
+        = f.text_field :content
+        div
+        = f.submit "Add comment"
