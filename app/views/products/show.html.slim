@@ -3,7 +3,7 @@
 div
     ul.errors
         - flash.each do |key, value|
-            li = "#{value}"  
+            li = "#{value}"
 
     h1= @product.name
     div price: #{@product.price}
@@ -11,7 +11,7 @@ div
             = "This product is promoted!"
             br
     - if @product.rate
-            = "This product was rated: #{@product.rate}"
+            = "Average rate of this product: #{@product.rate}"
 
     ul
         - @product.comments.each do |comment|
