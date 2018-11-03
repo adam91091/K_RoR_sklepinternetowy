@@ -16,7 +16,7 @@ div
     ul
         - @product.comments.each do |comment|
                 li = "#{comment.content} (#{comment.created_at})"
-
+- if user_signed_in?
     = form_for([@product, @product.comments.build]) do |f|
         div.field
         = f.text_field :content
