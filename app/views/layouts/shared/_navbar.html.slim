@@ -1,0 +1,20 @@
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
+  .container
+    a.navbar-brand href='/' 
+      strong SHOP
+    button.navbar-toggler aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarSupportedContent-7" data-toggle="collapse" type="button" 
+      span.navbar-toggler-icon
+    #navbarSupportedContent-7.collapse.navbar-collapse
+      ul.navbar-nav.mr-auto
+        li.nav-item
+          a.nav-link href='/'
+            | Home
+            span.sr-only (current)
+        li.nav-item
+          a.nav-link href=products_path Products
+      ul.navbar-nav.navbar-right
+        - if user_signed_in?
+          a.nav-link.disabled data-method='delete' href=destroy_user_session_path Logout
+        - else
+          a.nav-link href=new_user_session_path Log in
+
