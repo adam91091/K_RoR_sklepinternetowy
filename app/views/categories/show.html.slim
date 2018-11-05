@@ -1,0 +1,3 @@
+- for category in @child_categories
+  div 
+  	a href=url_for(action: 'show', controller: 'categories', id: category.id) #{category.name}

@@ -2,7 +2,12 @@
 
 class CategoriesController < ApplicationController
 	def show
-		@category = Product.find(params[:id])
+		@child_categories = find_child_categories(cat_id=params[:id])
+	end
+
+	private
+	def find_child_categories(cat_id)
+		Category.where(:parent => cat_id)
 	end
 end
   
