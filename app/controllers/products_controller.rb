@@ -17,7 +17,9 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    if @product.update_attributes(product_params)
+    @product.productrates.create(:rate => (params[:product])[:rate])
+    productrate = @product.productrates.sum(:rate) / @product.productrates.count
+    if @product.update_attribute(:rate, productrate)
       redirect_to(@product)
     else
       render 'index'

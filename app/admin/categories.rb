@@ -1,9 +1,8 @@
-ActiveAdmin.register Product do
-	permit_params :name, :price, :promoted, :category_id
+ActiveAdmin.register Category do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-# permit_params :list, :of, :attributes, :on, :model
+	permit_params :name, :parent
 #
 # or
 #
@@ -12,16 +11,5 @@ ActiveAdmin.register Product do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-
-form do |f|
-    f.inputs do
-		f.input :name
-		f.input :price
-		f.input :category_id
-		f.input :promoted
-		f.input :rate
-    end
-    f.actions
-  end
 
 end
