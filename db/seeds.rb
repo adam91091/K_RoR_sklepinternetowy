@@ -9,8 +9,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 AdminUser.create(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 # Clothing categories hierarchy
-women = Category.create(name: 'Women', parent: nil)
-men = Category.create(name: 'Men', parent: nil)
+women = Category.create(name: 'Women', parent: nil, main_women_category: true)
+men = Category.create(name: 'Men', parent: nil, main_men_category: true)
 
 blouses_and_shirts = Category.create(name: 'Blouses & Shirts', parent: women.id)
 coats_and_jackets = Category.create(name: 'Coats & Jackets', parent: women.id)
