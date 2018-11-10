@@ -3,7 +3,7 @@
 class ProductsController < ApplicationController
   def index
     @products = if params[:sort]
-                  Product.all.order(params[:sort])
+                  product_sort
                 else
                   Product.all
                 end
@@ -15,9 +15,7 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    @product.productrates.create(rate: params[:product][:rate])
-    productrate = @product.productrates.sum(:rate) / @product.productrates.count
-    if @product.update_attribute(:rate, productrate)
+    if @product.productrates.create(rate: params[:product][:rate])
       redirect_to(@product)
     else
       render 'index'
@@ -28,5 +26,15 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:rate)
+  end
+
+  def product_sort
+    if params[:sort] == 'rate asc'
+      Product.all.sort_by(&:rate)
+    elsif params[:sort] == 'rate desc'
+      Product.all.sort_by(&:rate).reverse
+    else
+      Product.all.order(params[:sort])
+    end
   end
 end

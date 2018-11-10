@@ -10,9 +10,10 @@
         - if @product.promoted
                 = "This product is promoted!"
                 br
-        - if @product.rate
+        - if @product.rate != 0
                 = "Average rate of this product: #{@product.rate}"
-
+        - else
+                = "This product has no rates."
         ul
             - @product.comments.each do |comment|
                     li = "#{comment.content} (#{comment.created_at})"

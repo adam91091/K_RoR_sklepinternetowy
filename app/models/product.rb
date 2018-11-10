@@ -6,4 +6,10 @@ class Product < ApplicationRecord
   validates_presence_of :name
   validates_presence_of :price
   validates_presence_of :category_id
+
+  def rate
+    productrates.sum(:rate) / productrates.count
+  rescue StandardError
+    0
+  end
 end
