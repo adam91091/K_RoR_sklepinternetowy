@@ -29,4 +29,4 @@ men = Category.create(name: 'Men', parent: nil, main_men_category: true)
 # trousers = Category.create(name: 'Trousers', parent: men.id)
 # Example product
 # product = Product.create(name: 'Example product', price: 99, category_id: jeans.id)
-# Comment.create(content: 'ok.', product_id: product.id) 
+# Comment.create(content: 'ok.', product_id: product.id)

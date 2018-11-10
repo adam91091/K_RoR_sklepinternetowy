@@ -4,8 +4,6 @@ class ProductsController < ApplicationController
   def index
     @products = if params[:sort]
                   Product.all.order(params[:sort])
-                elsif params[:reverse_sort]
-                  Product.all.order(params[:reverse_sort]).reverse
                 else
                   Product.all
                 end
@@ -17,7 +15,7 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    @product.productrates.create(:rate => (params[:product])[:rate])
+    @product.productrates.create(rate: params[:product][:rate])
     productrate = @product.productrates.sum(:rate) / @product.productrates.count
     if @product.update_attribute(:rate, productrate)
       redirect_to(@product)
