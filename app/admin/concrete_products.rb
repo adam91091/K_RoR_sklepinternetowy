@@ -1,5 +1,5 @@
-ActiveAdmin.register Product do
-	permit_params :name, :promoted, :category_id
+ActiveAdmin.register ConcreteProduct do
+	permit_params :product_id, :price, :size, :color, :amount
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
@@ -13,13 +13,15 @@ ActiveAdmin.register Product do
 #   permitted
 # end
 
-  form do |f|
-    f.inputs do
-		f.input :name
-		f.input :category_id
-		f.input :promoted
-		f.input :rate
-    end
-    f.actions
-  end
+form do |f|
+	f.inputs do
+	f.input :product
+	f.input :price
+	f.input :size
+	f.input :color
+	f.input :amount
+	end
+	f.actions
+end
+
 end

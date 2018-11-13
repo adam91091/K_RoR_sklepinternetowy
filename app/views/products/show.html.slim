@@ -6,7 +6,8 @@
             li = "#{value}"
     div
         h1= @product.name
-        div price: #{@product.price}
+        div 
+				/ price: #{@product.price}
         - if @product.promoted
                 = "This product is promoted!"
                 br

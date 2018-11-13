@@ -5,14 +5,12 @@
     form
       select name="sort" class="btn btn-outline-dark"
         option value="name asc"  Name
-        option value="price asc"  Price
         option value="rate asc"  Rate
       input type="submit" class="btn btn-outline-dark" value="Sort Ascending"
   #order-by_desc
     form
       select name="sort" class="btn btn-outline-dark"
         option value="name desc"  Name
-        option value="price desc"  Price
         option value="rate desc"  Rate
       input type="submit" class="btn btn-outline-dark" value="Sort Descending"
 
@@ -21,4 +19,3 @@
       p
         a href=product_path(product)
           = product.name
-        p = product.price
