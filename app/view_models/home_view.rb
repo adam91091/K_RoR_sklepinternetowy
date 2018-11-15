@@ -10,4 +10,4 @@ class HomeView
     men_ids = Category.where(parent: men).pluck(:id)
     Product.where(category_id: men_ids).last(3)
   end
-  end
+end
