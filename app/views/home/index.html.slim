@@ -11,3 +11,19 @@
               a.text-uppercase.white-text href=@women Women
             p
               a.text-uppercase.white-text href=@men Men
+
+h3 New products for women
+.row
+  - @view_model.new_products_women.each do |product|
+    .col-sm-4
+      p
+        a href=product_path(product)
+          = product.name
+
+h3 New products for men
+.row
+  - @view_model.new_products_men.each do |product|
+    .col-sm-4
+      p
+        a href=product_path(product)
+          = product.name

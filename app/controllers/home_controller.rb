@@ -2,10 +2,13 @@
 
 class HomeController < ApplicationController
   def index
-    men_cat_id = Category.find_by(name: 'Men')
-    women_cat_id = Category.find_by(name: 'Women')
+    @view_model = HomeView.new
 
-    @men = url_for(action: 'show', controller: 'categories', id: men_cat_id)
-    @women = url_for(action: 'show', controller: 'categories', id: women_cat_id)
+    if men_category = Category.find_by(main_men_category: true)
+      @men = url_for(action: 'show', controller: 'categories', id: men_category)
+    end
+    if women_category = Category.find_by(main_women_category: true)
+      @women = url_for(action: 'show', controller: 'categories', id: women_category)
+    end
   end
 end
