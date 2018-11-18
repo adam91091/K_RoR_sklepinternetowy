@@ -3,7 +3,7 @@
 class ProductsController < ApplicationController
   def index
     @products = if params[:sort]
-                  product_sort
+                  ProductProvider.new.sort(params[:sort])
                 else
                   Product.all
                 end
@@ -28,13 +28,5 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:rate)
   end
 
-  def product_sort
-    if params[:sort] == 'rate asc'
-      Product.all.sort_by(&:rate)
-    elsif params[:sort] == 'rate desc'
-      Product.all.sort_by(&:rate).reverse
-    else
-      Product.all.order(params[:sort])
-    end
-  end
+ 
 end
