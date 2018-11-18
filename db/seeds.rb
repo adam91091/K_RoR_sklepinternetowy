@@ -36,7 +36,7 @@ product2 = Product.create(:name => "jeans", :category_id => jeans.id )
 product3 = Product.create(:name => "jumpers", :category_id => jumpers.id)
 products = Product.all
 products.each do |product|
-  10.times do 
+  5.times do 
     product.productrates.create(:rate => Random.new.rand(1..5))
   end
 end

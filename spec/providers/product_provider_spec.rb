@@ -1,7 +1,5 @@
 require 'rails_helper'
 
- #wejscie: dostaje params w postaci hasha: np.{"sort"=>"rate desc"}
- #wyjscie: zwraca activerelation posortowanych produktow
 
 RSpec.describe ProductProvider do
 
