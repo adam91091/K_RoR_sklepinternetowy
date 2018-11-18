@@ -30,3 +30,13 @@ trousers = Category.create(name: 'Trousers', parent: men.id)
 # Example product
 product = Product.create(name: 'Example product', category_id: jeans.id)
 Comment.create(content: 'ok.', product_id: product.id) 
+# Example product with productrates 
+product1 = Product.create(:name => "dress", :category_id => dresses.id)
+product2 = Product.create(:name => "jeans", :category_id => jeans.id )
+product3 = Product.create(:name => "jumpers", :category_id => jumpers.id)
+products = Product.all
+products.each do |product|
+  10.times do 
+    product.productrates.create(:rate => Random.new.rand(1..5))
+  end
+end
