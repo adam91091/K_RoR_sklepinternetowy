@@ -4,8 +4,8 @@ class CreateConcreteProducts < ActiveRecord::Migration[5.2]
       t.references :product, foreign_key: true
       t.decimal :price
       t.string :color
-			t.string :size
-			t.integer :amount
+      t.string :size
+      t.integer :amount
 
       t.timestamps
     end
