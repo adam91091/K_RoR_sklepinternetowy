@@ -28,12 +28,12 @@ Category.create(name: 'Jumpers', parent: men.id)
 Category.create(name: 'T-shirts', parent: men.id)
 Category.create(name: 'Trousers', parent: men.id)
 # Example product
-product = Product.create(name: 'Example product', category_id: jeans.id)
+product = Product.create(name: 'Example product', category_id: 2)
 Comment.create(content: 'ok.', product_id: product.id)
 # Example product with productrates
-Product.create(name: 'dress', category_id: dresses.id)
-Product.create(name: 'jeans', category_id: jeans.id)
-Product.create(name: 'jumpers', category_id: jumpers.id)
+Product.create(name: 'dress', category_id: 3)
+Product.create(name: 'jeans', category_id: 4)
+Product.create(name: 'jumpers', category_id: 5)
 products = Product.all
 products.each do |p|
   5.times do

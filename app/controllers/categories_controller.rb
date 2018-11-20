@@ -2,7 +2,7 @@
 
 class CategoriesController < ApplicationController
   def show
-    @child_categories = find_child_categories(cat_id = params[:id])
+    @child_categories = find_child_categories(params[:id])
   end
 
   private
