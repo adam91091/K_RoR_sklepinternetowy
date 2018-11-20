@@ -20,7 +20,6 @@ Category.create(name: 'Jumpers', parent: women.id)
 Category.create(name: 'Skirts', parent: women.id)
 Category.create(name: 'T-shirts', parent: women.id)
 Category.create(name: 'Trousers', parent: women.id)
-
 Category.create(name: 'Shirts', parent: men.id)
 Category.create(name: 'Coats & Jackets', parent: men.id)
 Category.create(name: 'Jeans', parent: men.id)
