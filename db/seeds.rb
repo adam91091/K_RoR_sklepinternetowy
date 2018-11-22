@@ -30,12 +30,3 @@ Category.create(name: 'Trousers', parent: men.id)
 product = Product.create(name: 'Example product', category_id: 2)
 Comment.create(content: 'ok.', product_id: product.id)
 # Example product with productrates
-Product.create(name: 'dress', category_id: 3)
-Product.create(name: 'jeans', category_id: 4)
-Product.create(name: 'jumpers', category_id: 5)
-products = Product.all
-products.each do |p|
-  5.times do
-    p.productrates.create(rate: Random.new.rand(1..5))
-  end
-end

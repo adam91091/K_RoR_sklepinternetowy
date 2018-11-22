@@ -1,15 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe Product do
+  let(:product) { FactoryBot.create :product, name: 'Jeans' }
+
   describe '#rate' do
-    it 'should be average rates returned' do
-      product = Product.find_by_name('dress')
-      expect(product.rate). to eq(product.productrates.sum(:rate) / product.productrates.count)
+    it do
+      expect(product.rate).to eq(0)
     end
 
-    it 'should be StandardError rescued' do
-      product_with_no_rate = Product.create(name: 'no_rated_product', category_id: 2).rate
-      expect(product_with_no_rate).to eq(0)
+    context 'when product has been rated' do
+      let!(:rate1) { FactoryBot.create :productrate, product: product, rate: 4 }
+      let!(:rate2) { FactoryBot.create :productrate, product: product, rate: 3 }
+
+      it 'should be average rates returned' do
+        expect(product.rate).to eq(3)
+      end
     end
   end
 end
