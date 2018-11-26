@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Product do
   let!(:category1) { FactoryBot.create :category, name: 'Categoy1' }
-  let!(:product) { FactoryBot.create :product, name: 'Jeans', category: category1}
+  let!(:product) { FactoryBot.create :product, name: 'Jeans', category: category1 }
 
   context 'validations' do
     it { should validate_presence_of(:name) }
