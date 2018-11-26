@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Product < ApplicationRecord
+  monetize :price_cents
   has_many :productrates
   has_many :comments
   has_many :concrete_products

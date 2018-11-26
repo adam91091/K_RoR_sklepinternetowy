@@ -22,6 +22,19 @@ class ProductsController < ApplicationController
     end
   end
 
+  def add_to_cart
+    product = Product.find(params[:id])
+    outcome = AddToCart.run(guest: current_guest, product: product)
+
+    flash[:notice] = if outcome.valid?
+                       'Dodano do koszyka'
+                     else
+                       outcome.errors.full_messages
+                     end
+
+    redirect_to products_path
+  end
+
   private
 
   def product_params

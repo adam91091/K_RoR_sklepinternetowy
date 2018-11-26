@@ -10,6 +10,9 @@
   </head>
 
   <body>
+    <%if flash[:notice].present?%>
+    <div style="background: lightblue"><%= flash[:notice] %></div>
+    <%end%>
     <%= render partial: 'layouts/shared/navbar' %>
     <%= yield %>
   </body>
