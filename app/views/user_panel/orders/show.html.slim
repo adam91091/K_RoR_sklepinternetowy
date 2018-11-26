@@ -1,0 +1,17 @@
+h1= "Status zamówienia #{@order.status}"
+
+table.table
+  - @order.order_items.each do |item|
+    tr
+      td= item.product.name
+
+- if @order.status == Order::PENDING_ORDER_STATUS
+
+  = form_for @order, url: confirm_user_panel_order_path(@order) do |f|
+
+    .form_group
+      = f.text_area :comment, class: 'form-control', placeholder: 'Uwagi do zamówienia'
+    .form_group  
+    = f.submit 'Złóż zamówienie', class: 'btn btn-primary'
+- else
+  = button_to('Powrót do strony głównej', products_path, method: :get, class: "btn btn-primary")

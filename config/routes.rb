@@ -8,4 +8,25 @@ Rails.application.routes.draw do
   resources :products, :categories do
     resources :comments, :categories
   end
+  resources :products, only: [:index] do
+    member do
+      get :add_to_cart
+    end
+  end
+
+  resources :carts, only: [:index] do
+    collection do
+      post :confirm
+    end
+  end
+
+  namespace :user_panel, path: 'user' do
+    root to: 'profile#index'
+
+    resources :orders, only: %i[show index] do
+      member do
+        patch :confirm
+      end
+    end
+  end
 end
