@@ -1,8 +1,9 @@
 require 'rails_helper'
 RSpec.describe ProductProvider do
-  let(:product1) { FactoryBot.create :product, name: 'T-shirt' }
-  let(:product2) { FactoryBot.create :product, name: 'Coat' }
-  let(:product3) { FactoryBot.create :product, name: 'Jacket' }
+  let!(:category1) { FactoryBot.create :category, name: 'Categoy1' }
+  let(:product1) { FactoryBot.create :product, name: 'T-shirt', category: category1 }
+  let(:product2) { FactoryBot.create :product, name: 'Coat', category: category1 }
+  let(:product3) { FactoryBot.create :product, name: 'Jacket', category: category1 }
   let(:product_provider1) { ProductProvider.new }
   describe '#sort' do
     context 'when sorting by name' do
