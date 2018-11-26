@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_13_211728) do
+ActiveRecord::Schema.define(version: 2018_11_13_214920) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,18 @@ ActiveRecord::Schema.define(version: 2018_11_13_211728) do
     t.datetime "updated_at", null: false
     t.bigint "category_id"
     t.index ["category_id"], name: "index_products_on_category_id"
+  end
+
+  create_table "sizes", force: :cascade do |t|
+    t.integer "XXS"
+    t.integer "XS"
+    t.integer "S"
+    t.integer "M"
+    t.integer "L"
+    t.integer "XL"
+    t.integer "XXL"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
