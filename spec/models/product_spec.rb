@@ -1,19 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe Product do
-  let!(:category1) { FactoryBot.create :category, name: 'Categoy1' }
+  let!(:category1) { FactoryBot.create :category, name: 'Category1' }
   let!(:product) { FactoryBot.create :product, name: 'Jeans', category: category1 }
 
-	context 'associations' do
-		it { should belong_to(:category) }
-		it { should have_many(:comments) }
-		it { should have_many(:concrete_products) }
-		it { should have_many(:productrates) }
-	end
-	
+  context 'associations' do
+    it { should belong_to(:category) }
+    it { should have_many(:comments) }
+    it { should have_many(:concrete_products) }
+    it { should have_many(:productrates) }
+  end
+
   context 'validations' do
-		it { should validate_presence_of(:name) }
-		it { should validate_presence_of(:category) }
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:category) }
   end
 
   describe '#rate' do
