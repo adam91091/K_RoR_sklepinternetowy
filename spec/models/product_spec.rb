@@ -3,6 +3,10 @@ require 'rails_helper'
 RSpec.describe Product do
   let(:product) { FactoryBot.create :product, name: 'Jeans' }
 
+  context 'validations' do
+    it { should validate_presence_of(:name) }
+  end
+
   describe '#rate' do
     it do
       expect(product.rate).to eq(0)
