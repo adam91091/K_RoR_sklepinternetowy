@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # init
 ActiveAdmin.register AdminUser do
   permit_params :email, :password, :password_confirmation
