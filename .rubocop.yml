@@ -2,9 +2,13 @@ AllCops:
   Exclude:
     - 'db/schema.rb'
     - 'bin/*'
+    - 'vendor/bundle/**/*'
 LineLength:
   Enabled: false
 Documentation:
   Enabled: false
 Style/FrozenStringLiteralComment:
   Enabled: false
+Metrics/BlockLength:
+  Exclude:
+  - "**/*_spec.rb"

@@ -1,0 +1,8 @@
+table.table
+  - @cart.order_items.each do |item|
+    tr
+      td= item.product.name
+
+= button_to 'Zatwierdź zamówienie', confirm_carts_path
+br
+= button_to('Powrót do strony głównej', products_path, method: :get, class: "btn btn-primary")

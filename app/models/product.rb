@@ -2,10 +2,11 @@
 
 class Product < ApplicationRecord
   has_many :productrates
-	has_many :comments
-	has_many :concrete_products
+  has_many :comments
+  has_many :concrete_products
+  belongs_to :category
+  validates_presence_of :category
   validates_presence_of :name
-  validates_presence_of :category_id
 
   def rate
     productrates.sum(:rate) / productrates.count
