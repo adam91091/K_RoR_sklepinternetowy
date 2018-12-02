@@ -9,4 +9,12 @@ class Category < ApplicationRecord
 		end
 		return result + products
 	end
+
+	def all_concrete_products
+		result = []
+		all_products.each do |product|
+			result = product.all_concrete_products
+		end
+		return result
+	end
 end
