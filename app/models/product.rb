@@ -9,7 +9,7 @@ class Product < ApplicationRecord
   validates_presence_of :name
 
   def all_concrete_products
-    concrete_products.select('DISTINCT color')
+    concrete_products.uniq(&:color)
   end
 
   def rate

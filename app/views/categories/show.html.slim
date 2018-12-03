@@ -1,3 +1,8 @@
 - for category in @child_categories
   div 
   	a href=url_for(action: 'show', controller: 'categories', id: category.id) #{category.name}
+
+- for item in @category.all_concrete_products
+	div
+		p = item.product.name 
+		p = item.color
