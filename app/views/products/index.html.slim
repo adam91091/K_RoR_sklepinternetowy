@@ -19,6 +19,4 @@
       p
         a href=product_path(product)
           = product.name
-        a href=add_to_cart_product_path(product)
-				  = " Dodaj do koszyka"	
 = button_to('Koszyk zamówień', carts_path, method: :get, class: "btn btn-primary")

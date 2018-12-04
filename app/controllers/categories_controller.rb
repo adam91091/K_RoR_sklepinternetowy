@@ -3,6 +3,7 @@
 class CategoriesController < ApplicationController
   def show
     @child_categories = find_child_categories(params[:id])
+    @category = Category.find(params[:id])
   end
 
   private

@@ -1,0 +1,2 @@
+module ConcreteProductHelper
+end

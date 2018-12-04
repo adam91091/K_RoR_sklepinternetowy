@@ -8,6 +8,10 @@ class Product < ApplicationRecord
   validates_presence_of :category
   validates_presence_of :name
 
+  def all_concrete_products
+    concrete_products.uniq(&:color)
+  end
+
   def rate
     productrates.sum(:rate) / productrates.count
   rescue StandardError

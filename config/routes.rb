@@ -8,12 +8,15 @@ Rails.application.routes.draw do
   resources :products, :categories do
     resources :comments, :categories
   end
+
   resources :products, only: [:index] do
-    member do
-      get :add_to_cart
-    end
   end
 
+  resources :concrete_products, only: [] do
+    collection do
+      post :add_to_cart
+    end
+  end
   resources :carts, only: [:index] do
     collection do
       post :confirm

@@ -17,7 +17,14 @@
                 = "This product has no rates."
         ul
             - @product.comments.each do |comment|
-                    li = "#{comment.content} (#{comment.created_at})"
+                    li = "#{comment.content} (#{comment.created_at})" 
+    = form_tag add_to_cart_concrete_products_path do |f|
+      - @product.concrete_products.each do |concrete_product|
+          .form-check
+            = radio_button_tag :id, concrete_product.id
+            = label_tag "#{concrete_product.size}"
+      = submit_tag "Dodaj do koszyka"
+
     - if user_signed_in?
         = form_for(@product) do |f|
             = f.radio_button :rate, 1
