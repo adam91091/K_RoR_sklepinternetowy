@@ -18,12 +18,16 @@
         ul
             - @product.comments.each do |comment|
                     li = "#{comment.content} (#{comment.created_at})" 
-    = form_tag add_to_cart_concrete_products_path do |f|
-      - @product.concrete_products.each do |concrete_product|
-          .form-check
-            = radio_button_tag :id, concrete_product.id
-            = label_tag "#{concrete_product.size}"
-      = submit_tag "Dodaj do koszyka"
+    - if @product.concrete_products.size > 0                
+      = form_tag add_to_cart_concrete_products_path do |f|
+        - @product.concrete_products.each do |concrete_product|
+            .form-check
+              = radio_button_tag :id, concrete_product.id
+              = label_tag "Size: #{concrete_product.size}"
+              = label_tag "Price: #{concrete_product.price}"
+              = label_tag "Color: #{concrete_product.color}"
+              = label_tag "On stock: #{concrete_product.amount}" 
+        = submit_tag "Dodaj do koszyka"
 
     - if user_signed_in?
         = form_for(@product) do |f|
