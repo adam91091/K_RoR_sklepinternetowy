@@ -12,6 +12,12 @@ Rails.application.routes.draw do
   resources :products, only: [:index] do
   end
 
+  namespace :api do
+    get 'users/email_exists', to: 'users#email_exists'
+
+    resources :products, only: [:index]
+  end
+
   resources :concrete_products, only: [] do
     collection do
       post :add_to_cart
