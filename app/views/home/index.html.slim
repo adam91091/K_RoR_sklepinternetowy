@@ -28,18 +28,15 @@
 
 h3 New products for women
 .row
-  - @view_model.new_products_women.each do |product|
+  - @view_model.new_products_women.each do |item|
     .col-sm-4
-      p
-        a href=product_path(product)
-          = product.name
+      p 
+        = item.product.name
 
 h3 New products for men
 .row
   - @view_model.new_products_men.each do |product|
     .col-sm-4
       p
-        a href=product_path(product)
-          = product.name
-
+        = item.product.name
 
