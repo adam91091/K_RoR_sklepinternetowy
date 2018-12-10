@@ -12,9 +12,23 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
             span.sr-only (current)
         li.nav-item
           a.nav-link href=products_path Products
+        li.nav-item
+          .dropdown.show
+            a.nav-link#dropdownMenuLink.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" 
+              | Women
+            .dropdown-menu aria-labelledby="dropdownMenuLink" 
+              a.dropdown-item href="#"  Blouses & Shirts
+              a.dropdown-item href="#"  Coats & Jackets
+              a.dropdown-item href="#"  Dresses
+              a.dropdown-item href="#"  Jeans
+              a.dropdown-item href="#"  Jumpers
+              a.dropdown-item href="#"  Skirts
+              a.dropdown-item href="#"  T-shirts
+              a.dropdown-item href="#"  Trousers
       ul.navbar-nav.navbar-right
         - if user_signed_in?
           a.nav-link.disabled data-method='delete' href=destroy_user_session_path Logout
         - else
           a.nav-link href=new_user_session_path Log in
-
+      ul.navbar-nav.navbar-right
+        a.nav-link href=carts_path Your cart

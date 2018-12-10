@@ -1,16 +1,30 @@
-.bg 
-  .mask.rgba-black-light.d-flex.justify-content-center.align-items-center
-    .container
-      .row
-        .col-md-12.mb-4.white-text.text-center
-          h1.h1-reponsive.white-text.text-uppercase.font-weight-bold.mb-0.pt-md-5.pt-5.wow.fadeInDown data-wow-delay="0.3s" 
-            strong Everything you need
-          hr.hr-light.my-4.wow.fadeInDown data-wow-delay="0.4s" /
+#carouselExampleIndicators.carousel.slide.img-fluid data-ride="carousel" 
+  ol.carousel-indicators
+    li.active data-slide-to="0" data-target="#carouselExampleIndicators" 
+    li data-slide-to="1" data-target="#carouselExampleIndicators" 
+    li data-slide-to="2" data-target="#carouselExampleIndicators" 
+  .carousel-inner
+    .carousel-item.active
+      img.d-block.w-100 alt=("First slide") src=image_path("pexels-photo-322207.jpeg")
+      div.carousel-caption.d-md-block.container.transparent.text-dark
+        h1.responsive-h1.black-text.text-uppercase.font-weight-bold
+          strong Everything you need
+        hr.hr-dark.my-4.wow data-wow-delay="0.4s" /
+        div.inline
           h5.text-uppercase.mb-4.white-text.wow.fadeInDown data-wow-delay="0.4s" 
-            p
-              a.text-uppercase.white-text href=@women Women
-            p
-              a.text-uppercase.white-text href=@men Men
+            a.btn.btn-outline-dark.text-uppercase.white-text href=@women Women
+            span
+              |  
+            a.btn.btn-outline-dark.text-uppercase.white-text href=@men Men
+    .carousel-item 
+      img.d-block.w-100 alt=("First slide") src=image_path("pexels-photo-934070.jpeg")  
+  a.carousel-control-prev data-slide="prev" href="#carouselExampleIndicators" role="button" 
+    span.carousel-control-prev-icon aria-hidden="true" 
+    span.sr-only Previous
+  a.carousel-control-next data-slide="next" href="#carouselExampleIndicators" role="button" 
+    span.carousel-control-next-icon aria-hidden="true" 
+    span.sr-only Next
+
 
 h3 New products for women
 .row
@@ -27,3 +41,5 @@ h3 New products for men
       p
         a href=product_path(product)
           = product.name
+
+
