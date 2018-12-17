@@ -1,0 +1,11 @@
+= render :partial => 'user_panel/shared/navbar'
+h1 Order history
+table.table
+  - @history_orders.each do |item|
+    a href= user_panel_order_history_path(item)
+      p Zamówienie z dnia: 
+      = item.created_at
+      br
+      br
+
+      
