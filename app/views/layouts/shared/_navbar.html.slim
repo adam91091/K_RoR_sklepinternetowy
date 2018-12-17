@@ -25,6 +25,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
       ul.navbar-nav.navbar-right
         - if user_signed_in?
           a.nav-link.disabled data-method='delete' href=destroy_user_session_path Logout
+          a.nav-link href=user_panel_root_path My Account
         - else
           a.nav-link href=new_user_session_path Log in
       ul.navbar-nav.navbar-right
