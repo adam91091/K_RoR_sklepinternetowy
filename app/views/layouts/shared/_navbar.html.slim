@@ -13,7 +13,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
             .dropdown-menu aria-labelledby="dropdownMenuLink" 
               - women_categories.each do |category|
                 div 
-                  a href=url_for(action: 'show', controller: 'categories', id: category.id) #{category.name}
+                  = link_to category.name, category
         li.nav-item
           .dropdown.show
             a.nav-link#dropdownMenuLink.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" 
@@ -21,13 +21,13 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
             .dropdown-menu aria-labelledby="dropdownMenuLink" 
               - men_categories.each do |category|
                 div 
-                  a href=url_for(action: 'show', controller: 'categories', id: category.id) #{category.name}
+                  = link_to category.name, category
       ul.navbar-nav.navbar-right
         - if user_signed_in?
           a.nav-link.disabled data-method='delete' href=destroy_user_session_path Logout
         - else
           a.nav-link href=new_user_session_path Log in
       ul.navbar-nav.navbar-right
-        a.nav-link href=carts_path Your cart
-
-
+        a.nav-link href=carts_path
+          i.fas.fa-shopping-cart
+          |  Cart
