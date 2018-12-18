@@ -1,40 +1,44 @@
 nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
-	.container
-		a.navbar-brand href='/'
-			strong SHOP
-		button.navbar-toggler aria-controls="navbarSupportedContent" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarSupportedContent" data-toggle="collapse" type="button" 
-			span.navbar-toggler-icon
-		#navbarSupportedContent.collapse.navbar-collapse
-			ul.navbar-nav.mr-auto
-				li.nav-item
-					.dropdown.show
-						a.nav-link#dropdownMenuLink.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#"
-							| Women
-						.dropdown-menu aria-labelledby="dropdownMenuLink" 
-							- women_categories.each do |category|
-								div
-									= link_to category.name, category 
-				li.nav-item
-					.dropdown.show
-						a.nav-link#dropdownMenuLink.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#"
-							| Men
-						.dropdown-menu aria-labelledby="dropdownMenuLink" 
-							- men_categories.each do |category|
-								div
-									= link_to category.name, category 
-			form.form-inline.my-2.my-lg-0
-				input.form-control.mr-sm-2 aria-label="Search" placeholder="Search" type="search" /
-				button.btn.my-2.my-sm-0 type="submit"  Search
-			div.navbar-right.row
-				ul.navbar-nav
-					- if user_signed_in?
-						a.nav-link.disabled data-method='delete' href=destroy_user_session_path Logout
-						a.nav-link href=user_panel_root_path My Account
-						a.nav-link[href="#"]
-							| Features
-					- else
-						a.nav-link href=new_user_session_path Log in
-				ul.navbar-nav
-					a.nav-link href=carts_path
-						i.fas.fa-shopping-cart
-						|  Cart
+  .container
+    a.navbar-brand href='/'
+      strong SHOP
+    button.navbar-toggler aria-controls="navbarSupportedContent" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarSupportedContent" data-toggle="collapse" type="button" 
+      span.navbar-toggler-icon
+    #navbarSupportedContent.collapse.navbar-collapse
+      ul.navbar-nav.mr-auto
+        li.nav-item
+          .dropdown.show
+            a.nav-link#dropdownMenuLink.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#"
+              | Women
+            .dropdown-menu aria-labelledby="dropdownMenuLink" 
+              - women_categories.each do |category|
+                div
+                  = link_to category.name, category 
+        li.nav-item
+          .dropdown.show
+            a.nav-link#dropdownMenuLink.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#"
+              | Men
+            .dropdown-menu aria-labelledby="dropdownMenuLink" 
+              - men_categories.each do |category|
+                div
+                  = link_to category.name, category 
+      form.form-inline.my-2.my-lg-0
+        input.form-control.mr-sm-2 aria-label="Search" placeholder="Search" type="search" /
+        button.btn.my-2.my-sm-0 type="submit"
+          | Search
+        .search_result
+          ul
+      div.navbar-right.row
+        ul.navbar-nav
+          - if user_signed_in?
+            a.nav-link.disabled data-method='delete' href=destroy_user_session_path Logout
+            a.nav-link href=user_panel_root_path My Account
+            a.nav-link[href="#"]
+              | Features
+          - else
+            a.nav-link href=new_user_session_path Log in
+        ul.navbar-nav
+          a.nav-link href=carts_path
+            i.fas.fa-shopping-cart
+            |  Cart
+
