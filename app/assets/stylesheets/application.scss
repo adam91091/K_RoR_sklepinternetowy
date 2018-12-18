@@ -48,5 +48,9 @@ div > .dropdown-menu{
 
 .dropdown-menu > div > a{
   color: white;
-  text-decoration: none !important;
+	text-decoration: none !important;
+}
+
+.collapse.navbar-collapse > div.navbar-right.row {
+	margin-left: 20px;
 }
