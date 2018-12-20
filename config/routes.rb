@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     root to: 'profile#index'
 
     resources :order_history, only: %i[index show]
-    resources :account_management, only: %i[index show update] 
+    resources :account_management, only: %i[index show update]
     resources :orders, only: %i[show index] do
       member do
         patch :confirm
