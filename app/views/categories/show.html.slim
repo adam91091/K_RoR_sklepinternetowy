@@ -1,13 +1,13 @@
 - for category in @child_categories
   div 
-  	a href=url_for(action: 'show', controller: 'categories', id: category.id, **@query_params.symbolize_keys) #{category.name}
+    a href=url_for(action: 'show', controller: 'categories', id: category.id, **@query_params.symbolize_keys) #{category.name}
 
 - for item in @category.all_concrete_products(**@query_params.symbolize_keys)
-	div
-		div class="image_container"
-			- if item.images.attached?
-				img class="image" src=url_for(item.images[0])
-			- else 
-				img class="image" src=image_path("default.jpeg")
-		p = item.product.name 
-		p = item.color
+  div
+    div class="image_container"
+      - if item.images.attached?
+        img class="image" src=url_for(item.images[0])
+      - else 
+        img class="image" src=image_path("default.jpeg")
+    p = item.product.name 
+    p = item.color
