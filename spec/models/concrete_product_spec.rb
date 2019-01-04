@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ConcreteProduct, type: :model do
-  let!(:category1) { FactoryBot.create :category, name: 'Categoy1' }
+  let!(:category1) { FactoryBot.create :category, name: 'Category1' }
   let!(:product1) do
     FactoryBot.create :product, name: 'Product1',
                                 category: category1

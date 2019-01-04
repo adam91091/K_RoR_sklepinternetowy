@@ -1,0 +1,13 @@
+= render :partial => 'user_panel/shared/navbar'
+h1 Account Management
+= form_for @user, url: {action: "update"} do |f|
+  = f.label "Name "
+  br
+  = f.text_field "name"
+  br
+  br
+  = f.label "Surname "
+  br
+  = f.text_field "surname"
+  br
+  = f.submit "Confirm"

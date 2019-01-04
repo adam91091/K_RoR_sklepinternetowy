@@ -1,0 +1,8 @@
+= link_to user_panel_order_history_index_path do
+  strong back
+p Moje zamówienia:
+- @history_order.order_items.each do |order_item|
+  = order_item.concrete_product.size
+  = order_item.concrete_product.price
+  p = order_item.concrete_product.product.name
+  br

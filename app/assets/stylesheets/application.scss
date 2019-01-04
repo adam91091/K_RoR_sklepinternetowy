@@ -1,4 +1,6 @@
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 body, html {
     color: black;
@@ -35,4 +37,20 @@ h5 {
 .hr-light {
   border-top: 3px solid #fff;
   width: 80px;
+}
+
+div > .dropdown-menu{
+  background-color: #343a40 !important;
+  width: 300px;
+  border: #343a40;
+
+}
+
+.dropdown-menu > div > a{
+  color: white;
+	text-decoration: none !important;
+}
+
+.collapse.navbar-collapse > div.navbar-right.row {
+	margin-left: 20px;
 }

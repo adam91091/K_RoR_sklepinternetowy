@@ -1,5 +1,6 @@
 ActiveAdmin.register ConcreteProduct do
-  permit_params :product_id, :price, :size, :color, :amount
+  permit_params :product_id, :price, :size, :color, :amount, images: []
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -20,6 +21,7 @@ ActiveAdmin.register ConcreteProduct do
       f.input :size
       f.input :color
       f.input :amount
+      f.input :images, as: :file, input_html: { multiple: true }
     end
     f.actions
   end
