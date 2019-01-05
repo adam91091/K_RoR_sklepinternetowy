@@ -1,8 +1,86 @@
 - for category in @child_categories
   div 
     a href=url_for(action: 'show', controller: 'categories', id: category.id, **@query_params.symbolize_keys) #{category.name}
+    
+ul.filters
+  li
+    button.btn.btn-link.dropdown-toggle.dropdown-filter  aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" 
+      | PRICE
+    .dropdown-menu
+      form.px-2.py-2.large
+          .form-group
+            label for="example"  Price from
+            input.form-control.rectangle name="from" type="number" /
+          .form-group
+            label for="example"  Price to
+            input.form-control.rectangle name="to" type="number" /
+          br
+          button.btn.btn-outline-dark.btn-block.rectangle FILTER
+  li
+    button.btn.btn-link.dropdown-toggle.dropdown-filter  aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" 
+      | SIZE
+    .dropdown-menu
+      form.px-2.py-2.large
+        .form-check
+          input#xs.form-check-input.filter-checkbox name="xs" value="XS" type="checkbox" /
+          label.form-check-label for="xs" 
+            | XS
+        .form-check
+          input#s.form-check-input name="s" value="S" type="checkbox" /
+          label.form-check-label for="s" 
+            | S
+        .form-check
+          input#m.form-check-input name="m" value="M" type="checkbox" /
+          label.form-check-label for="m" 
+            | M
+        .form-check
+          input#l.form-check-input name="l" value="L" type="checkbox" /
+          label.form-check-label for="l" 
+            | L   
+        .form-check
+          input#xl.form-check-input name="xl" value="XL" type="checkbox" /
+          label.form-check-label for="xl" 
+            | XL
+        .form-check
+          input#xxl.form-check-input name="xxl" value="XXL" type="checkbox" /
+          label.form-check-label for="xxl" 
+            | XXL
+        br
+        button.btn.btn-outline-dark.rectangle.btn-block FILTER
 
-- for item in @category.all_concrete_products(**@query_params.symbolize_keys)
+  li
+    button.btn.btn-link.dropdown-toggle.dropdown-filter  aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" 
+      | SORT BY
+    .dropdown-menu
+      form.px-2.py-2.large
+        .form-check
+          input#price_ascending.form-check-input name="sort_by" value="price asc" type="radio" /
+          label.form-check-label for="price_ascending" 
+            | price ascending
+        .form-check
+          input#price_descending.form-check-input name="sort_by" value="price desc" type="radio" /
+          label.form-check-label for="price_descending" 
+            | price descending
+        .form-check
+          input#rate_ascending.form-check-input name="sort_by" value="rate asc" type="radio" /
+          label.form-check-label for="rate_ascending" 
+            | rate ascending
+        .form-check
+          input#rate_descending.form-check-input name="sort_by" value="rate desc" type="radio" /
+          label.form-check-label for="rate_descending" 
+            | rate descending
+          .form-check
+          input#name_ascending.form-check-input name="sort_by" value="name asc" type="radio" /
+          label.form-check-label for="name_ascending" 
+            | name ascending
+        .form-check
+          input#name_descending.form-check-input name="sort_by" value="name desc" type="radio" /
+          label.form-check-label for="name_descending" 
+            | name descending
+        br
+        button.btn.btn-outline-dark.rectangle.btn-block SORT
+
+- for item in @category.filtred_products(**@query_params.symbolize_keys)
   div
     div class="image_container"
       - if item.images.attached?
@@ -11,3 +89,4 @@
         img class="image" src=image_path("default.jpeg")
     p = item.product.name 
     p = item.color
+    p = item.price

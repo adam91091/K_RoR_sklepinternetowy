@@ -10,4 +10,17 @@ h1 Account Management
   br
   = f.text_field "surname"
   br
+  br
+  = f.label "E-mail address"
+  br
+  = f.text_field "email", :readonly => true
+  br
+  br
+  = f.label "Address "
+  br
+  = f.text_field "address"
+  br
+  br
+
+  br
   = f.submit "Confirm"

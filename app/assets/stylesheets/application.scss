@@ -39,18 +39,48 @@ h5 {
   width: 80px;
 }
 
-div > .dropdown-menu{
+div > .dark-menu{
   background-color: #343a40 !important;
   width: 300px;
   border: #343a40;
 
 }
 
-.dropdown-menu > div > a{
+.dark-menu > div > a{
   color: white;
 	text-decoration: none !important;
+}
+.rectangle{
+  border-radius: 0px !important;
+}
+
+.dropdown-filter {
+  color: #343a40;
+	text-decoration: none;
+}
+.dropdown-filter:hover {
+  color: #2f3336;
+  text-decoration: underline;
+}
+
+.filter-checkbox input[type="checkbox"]{
+  background-color: #2f3336;
 }
 
 .collapse.navbar-collapse > div.navbar-right.row {
 	margin-left: 20px;
+}
+
+.large {
+  min-width: 200px;
+}
+
+.filters > li{
+  display: inline;
+}
+
+ul.filters {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
