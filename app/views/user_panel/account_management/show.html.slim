@@ -16,6 +16,11 @@ h1 Account Management
   = f.text_field "email", :readonly => true
   br
   br
+  = f.label "Phone number"
+  br
+  = f.text_field "phone"
+  br
+  br
   = f.label "Address "
   br
   = f.text_field "address"
@@ -30,6 +35,10 @@ h1 Account Management
   br
   = f.text_field "city"
   br
-
+  br
+  = f.label "Country"
+  br
+  select.input-medium.bfh-countries data-country="US"
+  br
   br
   = f.submit "Confirm"
