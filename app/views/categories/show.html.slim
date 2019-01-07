@@ -81,6 +81,9 @@ ul.filters
         button.btn.btn-outline-dark.rectangle.btn-block SORT
 
 - for item in @category.filtred_products(**@query_params.symbolize_keys)
+    a href=url_for(action: 'show', controller: 'categories', id: category.id, search_phrase: params[:search_phrase]) #{category.name}
+
+- for item in @category.all_concrete_products(search_phrase: params[:search_phrase])
   div
     div class="image_container"
       - if item.images.attached?
