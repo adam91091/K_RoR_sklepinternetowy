@@ -133,6 +133,18 @@ ActiveRecord::Schema.define(version: 2019_01_07_122136) do
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
+  create_table "sizes", force: :cascade do |t|
+    t.integer "XXS"
+    t.integer "XS"
+    t.integer "S"
+    t.integer "M"
+    t.integer "L"
+    t.integer "XL"
+    t.integer "XXL"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
