@@ -17,7 +17,7 @@ module UserPanel
     private
 
     def post_params
-      params.require(:user).permit(:name, :surname, :email)
+      params.require(:user).permit(:name, :surname, :email, :address, :city, :zip_code)
     end
   end
 end
