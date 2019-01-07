@@ -84,3 +84,51 @@ ul.filters {
   margin: 0;
   padding: 0;
 }
+
+div.main_container_cat {
+	display: flex;
+	flex-direction: row;
+	margin-right: 2%;
+	margin-left: 2%;
+}
+
+div.second_level_container_cat {
+	display: flex;
+	flex-direction: column;
+	padding: 2%;
+}
+
+div.items {
+	display: flex;
+	justify-content: center;
+}
+
+div.third_level_container_cat {
+	margin-bottom: 1%;
+}
+
+div.images_container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-content: flex-start;
+}
+
+div.product_content {
+	margin: 2%;
+}
+
+.image_cat_view {
+	max-height: 100%;
+  height: auto;
+	width: auto;
+}
+
+.image_container {
+	padding: 2%;
+	width: 320px;
+	height: 450px;
+	overflow: hidden;
+	display: flex;
+	justify-content:center;
+}
