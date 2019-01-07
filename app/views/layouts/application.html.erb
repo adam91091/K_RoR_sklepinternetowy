@@ -11,6 +11,9 @@
 
   <body>
     <!-- week_7 -->
+    <%if flash[:alert].present?%>
+    <div style="background: red"><%= flash[:alert] %></div>
+    <%end%>    
     <%if flash[:notice].present?%>
     <div style="background: lightblue"><%= flash[:notice] %></div>
     <%end%>

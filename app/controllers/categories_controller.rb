@@ -2,7 +2,7 @@
 
 class CategoriesController < ApplicationController
   def show
-    @query_params = request.query_parameters
+    # @query_params = request.query_parameters
     @child_categories = find_child_categories(params[:id])
     @category = Category.find(params[:id])
   end

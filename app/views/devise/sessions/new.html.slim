@@ -4,6 +4,10 @@ h1
   .form-group
     = f.label :email
     = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
+    .valid-feedback
+      | This e-mail address exists in our database 
+    .invalid-feedback
+      | This e-mail address does not exists in our database
   .form-group
     = f.label :password
     = f.password_field :password, autocomplete: 'current-password', class: 'form-control'
@@ -15,3 +19,18 @@ h1
   .form-group
     = f.submit  t('.sign_in'), class: 'btn btn-primary'
 = render 'devise/shared/links'
+
+javascript:
+  $('input[name="user[email]"]').blur(function() {
+    $('input[name="user[email]"]').removeClass('is-invalid')
+    $('input[name="user[email]"]').removeClass('is-valid')
+    $.get('/api/users/email_exists', {email: $(this).val()}, function(response) {
+      if (response == true) {
+        $('input[name="user[email]"]').addClass('is-valid')
+      }
+      else {
+        $('input[name="user[email]"]').addClass('is-invalid')
+      }
+    })
+  })
+  

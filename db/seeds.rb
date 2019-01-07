@@ -15,10 +15,10 @@ men = Category.create(name: 'Men', parent: main.id, main_men_category: true)
 
 Category.create(name: 'Blouses & Shirts', parent: women.id)
 Category.create(name: 'Coats & Jackets', parent: women.id)
-Category.create(name: 'Dresses', parent: women.id)
+dresses = Category.create(name: 'Dresses', parent: women.id)
 Category.create(name: 'Jeans', parent: women.id)
 Category.create(name: 'Jumpers', parent: women.id)
-Category.create(name: 'Skirts', parent: women.id)
+skirts = Category.create(name: 'Skirts', parent: women.id)
 Category.create(name: 'T-shirts', parent: women.id)
 Category.create(name: 'Trousers', parent: women.id)
 Category.create(name: 'Shirts', parent: men.id)
@@ -31,25 +31,25 @@ Category.create(name: 'Trousers', parent: men.id)
 # product = Product.create(name: 'Example product', category_id: 2)
 # Comment.create(content: 'ok.', product_id: product.id)
 # Product 1
-long_skirt = Product.create(name: 'Long skirt', category_id: 8)
+long_skirt = Product.create(name: 'Long skirt', category_id: skirts.id)
 # concrete products for Long skirt
 ConcreteProduct.create(product: long_skirt, price: 10.00, size: 'M', color: '#000000', amount: 1)
 ConcreteProduct.create(product: long_skirt, price: 10.00, size: 'L', color: '#000000', amount: 1)
 ConcreteProduct.create(product: long_skirt, price: 10.00, size: 'S', color: '#000000', amount: 1)
 # Product 2
-long_dress = Product.create(name: 'Long dress', category_id: 8)
+long_dress = Product.create(name: 'Long dress', category_id: dresses.id)
 # concrete products for Long skirt
 ConcreteProduct.create(product: long_dress, price: 10.00, size: 'M', color: '#000000', amount: 1)
 ConcreteProduct.create(product: long_dress, price: 10.00, size: 'L', color: '#000000', amount: 1)
 ConcreteProduct.create(product: long_dress, price: 10.00, size: 'S', color: '#000000', amount: 1)
 # Product 2
-short_dress = Product.create(name: 'Short dress', category_id: 8)
+short_dress = Product.create(name: 'Short dress', category_id: dresses.id)
 # concrete products for Long skirt
 ConcreteProduct.create(product: short_dress, price: 10.00, size: 'M', color: '#000000', amount: 1)
 ConcreteProduct.create(product: short_dress, price: 10.00, size: 'L', color: '#000000', amount: 1)
 ConcreteProduct.create(product: short_dress, price: 10.00, size: 'S', color: '#000000', amount: 1)
 # Product 2
-other_dress = Product.create(name: 'Other dress', category_id: 8)
+other_dress = Product.create(name: 'Other dress', category_id: dresses.id)
 # concrete products for Long skirt
 ConcreteProduct.create(product: other_dress, price: 10.00, size: 'M', color: '#000000', amount: 1)
 ConcreteProduct.create(product: other_dress, price: 10.00, size: 'L', color: '#000000', amount: 1)
